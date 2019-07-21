@@ -1,0 +1,12 @@
+PROCEDURE "trp_auth_test.authdb::createTU"(
+	IN TU_ID nvarchar(10), TU_TYPE nvarchar(10), SOURCE_LOCATION nvarchar(10),
+	OUT ex_error NVARCHAR(100))
+   LANGUAGE SQLSCRIPT SQL
+   SECURITY INVOKER AS
+   --DEFAULT SCHEMA <default_schema_name>
+   -- READS SQL DATA AS
+BEGIN
+   declare noc integer;
+   
+   insert into "trp_auth_test.authdb::pickupandreturn" values( TU_ID, TU_TYPE, SOURCE_LOCATION, '');
+END

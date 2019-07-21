@@ -1,0 +1,11 @@
+{
+	"welcomeFile": "webapp/index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "^/odata.xsodata/.*$",
+		"destination": "authjs_be"
+	},{
+         "source": ".*\\.xsjs",
+         "destination": "authjs_be"
+     }]
+}

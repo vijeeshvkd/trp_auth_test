@@ -1,0 +1,56 @@
+<mvc:View controllerName="com.sap.trp.auth.authUI.view.pickupreturn.locationassignment.Main"
+	xmlns="sap.ui.commons" xmlns:m="sap.m" xmlns:t="sap.ui.table"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	height="100%">
+
+	<layout:Splitter id="layout" orientation="Vertical">
+		<layout:contentAreas>
+			<!-- Master Table -->
+			<t:Table rows="{/transportationunit}" title="Transportation Units" selectionMode="MultiToggle" visibleRowCount="5">
+				<t:columns>
+					<t:Column>
+						<Label text="Transportation ID"/>
+						<t:template>
+							<m:Text text="{TU_ID}" />
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<m:Label text="Transportation Type"/>
+						<t:template>
+							<m:Text text="{TU_TYPE}" />
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<m:Label text="SOURCE_LOCATION"/>
+						<t:template>
+							<m:Text text="{SOURCE_LOCATION}" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+			<!-- Detail Panel -->
+			<Panel id="detailPanel" height="100%" text="Transportation Units" showCollapseIcon="false">
+				<layoutData>
+					<layout:SplitterLayoutData resizable="true" minSize="250" />
+				</layoutData>
+				
+				<content>
+					<!-- Booking item detail -->
+					<TabStrip id="details" selectedIndex="0" height="100%">
+						<tabs>
+							<Tab id="suggestedLocationTab" text="Suggested Locations (12)">
+								
+							</Tab>
+
+							<Tab id="suggestedTriangulationTab" text="Suggested Triangulations (0)">
+								
+							</Tab>
+						</tabs>
+					</TabStrip>
+				</content>
+			</Panel>
+		</layout:contentAreas>
+	</layout:Splitter>
+</mvc:View>

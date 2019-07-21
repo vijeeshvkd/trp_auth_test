@@ -1,0 +1,33 @@
+ID: trp_auth_test
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: authdb
+    type: hdb
+    path: authdb
+    requires:
+      - name: hdi_authdb
+  - name: authjs
+    type: nodejs
+    path: authjs
+    provides:
+      - name: authjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: authdb
+      - name: hdi_authdb
+  - name: authUI
+    type: html5
+    path: authUI
+    requires:
+      - name: authjs_api
+        group: destinations
+        properties:
+          name: authjs_be
+          url: '~{url}'
+resources:
+  - name: hdi_authdb
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container

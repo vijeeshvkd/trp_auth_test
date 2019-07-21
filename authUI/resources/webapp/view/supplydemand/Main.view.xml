@@ -1,0 +1,13 @@
+<mvc:View controllerName="com.sap.trp.auth.authUI.view.supplydemand.Main"
+	xmlns="sap.ui.commons" xmlns:m="sap.m" xmlns:t="sap.ui.table"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	height="100%">
+
+	<layout:Splitter id="layout" orientation="Vertical">
+		<layout:contentAreas>
+			
+		</layout:contentAreas>
+	</layout:Splitter>
+</mvc:View>

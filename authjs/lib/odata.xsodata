@@ -1,0 +1,3 @@
+service {
+	"trp_auth_test.authdb::transportationunit" as "transportationunit" keys generate local "ID";
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="trp_auth_test.authdb::transportationunit" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="transportationunit"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="trp_auth_test.authdb::pickupandreturn">
+    <resourceUri>trp_auth_test.authdb::pickupandreturn</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="COLUMN_ENGINE">
+    <viewAttributes>
+      <viewAttribute id="TU_ID"/>
+      <viewAttribute id="TU_TYPE"/>
+      <viewAttribute id="SOURCE_LOCATION"/>
+      <viewAttribute id="association_1_TU_ID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="trp_auth_test.authdb::pickupandreturn">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TU_ID" source="TU_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TU_TYPE" source="TU_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SOURCE_LOCATION" source="SOURCE_LOCATION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="association_1_TU_ID" source="association_1.TU_ID"/>
+    </input>
+    <filter>&quot;TU_TYPE&quot;='Return'</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="TU_ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TU_ID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TU_ID"/>
+    </attribute>
+    <attribute id="TU_TYPE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TU_TYPE"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TU_TYPE"/>
+    </attribute>
+    <attribute id="SOURCE_LOCATION" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SOURCE_LOCATION"/>
+      <keyMapping columnObjectName="Projection_1" columnName="SOURCE_LOCATION"/>
+    </attribute>
+    <attribute id="association_1_TU_ID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="association_1_TU_ID"/>
+      <keyMapping columnObjectName="Projection_1" columnName="association_1_TU_ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="199"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

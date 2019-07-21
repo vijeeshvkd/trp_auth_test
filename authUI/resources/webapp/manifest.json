@@ -1,0 +1,128 @@
+{
+	"_version": "1.5.0",
+	"sap.app": {
+		"id": "com.sap.trp.auth.authUI",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "hanatemplates.basicSAPUI5ApplicationProject",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"odata": {
+				"uri": "/odata.xsodata",
+				"type": "OData"
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.sap.trp.auth.authUI.view.Main",
+			"type": "XML"
+		},
+		"config": {
+            "sapFiori2Adaptation": true,
+            "fullWidth": true
+        },
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.sap.trp.auth.authUI.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "odata",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.sap.trp.auth.authUI.view",
+				"controlAggregation": "content",
+				"clearControlAggregation": true,
+				"controlId": "shell"
+			},
+			"routes": [{
+				"name": "pickupReturnLocationAssignment",
+				"pattern": "pickupReturnLocationAssignment",
+				"target": ["Pickupreturn"]
+			},{
+				"name": "supplydemand",
+				"pattern": "supplydemand",
+				"target": ["SupplyDemand"]
+			}],
+			"targets": {
+				"Pickupreturn": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "pickupreturn.locationassignment.Main"
+				},
+				"SupplyDemand": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "supplydemand.Main"
+				}
+			}
+		}
+	}
+}

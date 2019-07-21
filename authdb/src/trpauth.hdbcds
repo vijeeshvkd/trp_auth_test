@@ -1,0 +1,23 @@
+namespace trp_auth_test.authdb;
+
+/*@@layout{"layoutInfo":{"x":-189.369140625,"y":-69}}*/
+context trpauth {
+
+};
+
+/*@@layout{"layoutInfo":{"x":-411,"y":-26.5}}*/
+entity pickupandreturn {
+    key TU_ID           : String(10);
+        TU_TYPE         : String(10);
+        SOURCE_LOCATION : String(10);
+        association_1   : association[1, 1] to suggestedlocations;
+};
+
+/*@@layout{"layoutInfo":{"x":-165,"y":-26.5}}*/
+entity suggestedlocations {
+    key TU_ID                 : String(10);
+        CUR_BALANCING_SD_PLAN : Integer;
+        CUR_STOCK             : Integer;
+        IMPACTED_SD_PLAN      : Integer;
+        LOCATION_NAME         : String(30);
+};

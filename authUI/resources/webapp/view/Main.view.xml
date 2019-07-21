@@ -1,0 +1,29 @@
+<mvc:View controllerName="com.sap.trp.auth.authUI.controller.Main" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:ux3="sap.ui.ux3" xmlns:unified="sap.ui.unified" xmlns:layout="sap.ui.layout"
+	xmlns:c="sap.ui.commons">
+		<ux3:Shell 
+		id="shell"
+		appTitle="SAP Transportation Resource Planning"
+		appIcon="img/sap_50x26.png"
+		fullHeightContent="true"
+		paneWidth="400"
+		showLogoutButton="true"
+		showSearchTool="false"
+		showFeederTool="false"
+		worksetItemSelected="onWorksetItemSelected">
+			<ux3:worksetItems>
+				<ux3:NavigationItem key="pickupReturnLocationAssignment" text="Pick-Up and Return" >
+					<ux3:subItems>
+						<ux3:NavigationItem key="pickupReturnLocationAssignment" text="Location Assignment" visible="true" />
+					</ux3:subItems>
+				</ux3:NavigationItem>
+				<ux3:NavigationItem key="supplydemand" text="Supply and Demand" >
+					
+				</ux3:NavigationItem>
+			</ux3:worksetItems>
+			<ux3:headerItems>
+				<c:TextView id="userLabel" text="C5255898" />
+				<c:Link id="myDataLink" text="My Data" press="onOpenProfile" />
+			</ux3:headerItems>
+		</ux3:Shell>
+</mvc:View>
